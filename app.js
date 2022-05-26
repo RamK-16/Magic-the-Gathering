@@ -13,6 +13,8 @@ const signInRouter = require('./routes/signIn');
 const signOutRouter = require('./routes/signOut');
 const cartRouter = require('./routes/cart');
 const lkRouter = require('./routes/lk');
+const filterCityRouter = require('./routes/filterCity');
+const filterCardRouter = require('./routes/filterCard');
 
 const app = express();
 const PORT = 3000;
@@ -31,7 +33,8 @@ app.use('/', indexRouter);
 app.use('/signUp', signUpRouter);
 app.use('/signIn', signInRouter);
 app.use('/signOut', signOutRouter);
-
+app.use('/filterCity', filterCityRouter);
+app.use('/filterCard', filterCardRouter);
 
 app.use('/cart', cartRouter);
 // app.use('/cart/succes')

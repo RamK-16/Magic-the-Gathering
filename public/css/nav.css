@@ -61,3 +61,23 @@ form {
  background: #7BA7AB;
  border-radius: 5px;
 }
+
+.styleSearchBar{
+  position: absolute;
+  color: black;
+  background-color: white;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* #searchCardList{
+  position: absolute;
+  color: black;
+  background-color: white;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
