@@ -2,26 +2,31 @@
 const fs = require('fs').promises;
 const path = require('path');
 const bcrypt = require('bcrypt');
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     const cities = [{ name: 'Moscow', createdAt: new Date(), updatedAt: new Date() },
-     { name: 'St.Petersburg', createdAt: new Date(), updatedAt: new Date() },
-     { name: 'Novosibirsk', createdAt: new Date(), updatedAt: new Date() }
+      { name: 'St.Petersburg', createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Novosibirsk', createdAt: new Date(), updatedAt: new Date() },
     ];
-    const roles = [{ name: 'admin', createdAt: new Date(), updatedAt: new Date() }, 
-    { name: 'regular', createdAt: new Date(), updatedAt: new Date() }];
+    const roles = [{ name: 'admin', createdAt: new Date(), updatedAt: new Date() },
+      { name: 'regular', createdAt: new Date(), updatedAt: new Date() }];
     // const cards = [{
     //   name: 'warior', img: '/s1111/', createdAt: new Date(), updatedAt: new Date(),
     // }, {
     //   name: 'berserk', img: '/s2222/', createdAt: new Date(), updatedAt: new Date(),
     // }];
     const cards = [];
-    let arrNames = await fs.readdir('./public/img');
-    for (let i = 0; i < arrNames.length; i+=1) {
+    const arrNames = await fs.readdir('./public/img');
+    for (let i = 0; i < arrNames.length; i += 1) {
       const dotIndex = arrNames[i].indexOf('.');
-      const filename = arrNames[i].substr(0,dotIndex);
-      cards.push({name:filename, img:`/img/${filename}.png`,
-       createdAt: new Date(), updatedAt: new Date()});
+      const filename = arrNames[i].substr(0, dotIndex);
+      cards.push({
+        name: filename,
+        img: `/img/${filename}.png`,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      });
     }
     const states = [{ name: 'new', createdAt: new Date(), updatedAt: new Date() }, { name: 'old', createdAt: new Date(), updatedAt: new Date() }, { name: 'norm', createdAt: new Date(), updatedAt: new Date() }];
     const users = [{
