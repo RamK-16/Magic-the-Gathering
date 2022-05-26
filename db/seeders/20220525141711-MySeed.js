@@ -20,7 +20,7 @@ module.exports = {
     for (let i = 0; i < arrNames.length; i+=1) {
       const dotIndex = arrNames[i].indexOf('.');
       const filename = arrNames[i].substr(0,dotIndex);
-      cards.push({name:filename, img:`${filename}.png`,
+      cards.push({name:filename, img:`/img/${filename}.png`,
        createdAt: new Date(), updatedAt: new Date()});
     }
     const states = [{ name: 'new', createdAt: new Date(), updatedAt: new Date() }, { name: 'old', createdAt: new Date(), updatedAt: new Date() }, { name: 'norm', createdAt: new Date(), updatedAt: new Date() }];
