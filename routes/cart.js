@@ -24,4 +24,7 @@ router.get('/', async (req, res) => {
   res.render(`cart/cart/${id}`, { cartPosts });
 });
 
+router.get('/success', (req, res) => {
+  res.render('cart/cartSuccess');
+});
 module.exports = router;

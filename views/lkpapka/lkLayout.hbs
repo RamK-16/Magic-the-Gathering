@@ -1,15 +1,17 @@
 <nav>
   <button>Мои карточки</button> | 
-  <button>Добавить карточки</button>
+  <button>Выставить новую карточку на продажу</button>
 </nav>
 
 {{!-- if --}}
 <form class="add-post-form">
   <div class="card-image-container"></div>
-  <label for="cardName">Card name:</label><br>
-  <input type="text" id="fname" name="cardName"><br>
-  <label for="price">Price:</label><br>
-  <input type="text" id="lname" name="lname">
+  <label for="cardName">Название карточки:</label><br>
+  <input type="text" name="cardName"><br>
+  <label for="price">Цена:</label><br>
+  <input type="text" name="price">
+  <label for="price">Состояние:</label><br>
+  <input type="text" name="state_id">
   <button type="submit">Выставить на продажу</button>
 </form>
 
