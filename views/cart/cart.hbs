@@ -1,9 +1,13 @@
 <h2>Корзина</h2>
 <form>
   <button class="buy_button">Купить</button>
-  {{#each cartPosts}}
+  {{#each PostInUserCart}}
   <div>
-    {{this.img}} {{this.name}} {{this.}}
+  <img src="{{this.Card.img}}">
+  <div>{{this.Card.name}}</div>
+  <div>{{this.price}}</div>
+  <div>{{this.State.name}}</div>
+  <div>{{this.User.City.name}}</div>
     <button class="delete_button">Удалить</button>
   </div>
   {{/each}}

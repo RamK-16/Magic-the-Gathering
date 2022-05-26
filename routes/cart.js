@@ -1,27 +1,36 @@
 const router = require('express').Router();
-const { Cart } = require('../db/models');
+const {
+  Cart, User, Post, Card, State, City,
+} = require('../db/models');
 
 async function findPostsInUserCart() {
-  try {
-    const Postss = await Post.findAll({
-      // where: { user_id: 1 },
-      attributes: ['card_id'],
-      include: [{ model: User, as: 'UserInCart', attributes: ['name'] }, { model: Card, attributes: ['name'] }, { model: State, attributes: ['name'] }],
-      // raw: true,
-    });
+  const PostsInUserCart1 = await User.findOne({
+    where: {
+      id: 2,
+    },
+    include: [{
+      model: Post,
+      as: 'PostInCart',
+      include: [{
+        model: Card,
+      }, {
+        model: State,
+      }, {
+        model: User,
+        include: City,
+      }],
+    }],
+  });
 
-    // console.log(Postss)
-    console.log(JSON.parse(JSON.stringify(Postss))[0]);
-  } catch (err) {
-    console.log('--------------------->', err);
-  }
+  return JSON.parse(JSON.stringify(PostsInUserCart1));
 }
 
 router.get('/', async (req, res) => {
-  const cartPosts = await Cart.findAll(
-
-  );
-  res.render(`cart/cart/${id}`, { cartPosts });
+  const PostInUserCart1 = await findPostsInUserCart();
+  const PostInUserCart = PostInUserCart1.PostInCart;
+  console.log(PostInUserCart1);
+  //console.log(PostInUserCart);
+  res.render('cart/cart', { PostInUserCart });
 });
 
 router.get('/success', (req, res) => {

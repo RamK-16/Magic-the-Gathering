@@ -1,9 +1,23 @@
 const router = require('express').Router();
 
-const { Post, Card } = require('../db/models');
+const { Post, Card, State } = require('../db/models');
 
-router.get('/', (req, res) => {
-  res.render('lkpapka/lkLayout');
+router.get('/', async (req, res) => {
+  const userPosts1 = await Post.findAll({
+    where: {
+      user_id: 2,
+    },
+    attributes: ['price'],
+    include: [{
+      model: Card,
+      attributes: ['img', 'name'],
+    }, {
+      model: State,
+      attributes: ['name'],
+    }],
+  });
+  const userPosts = JSON.parse(JSON.stringify(userPosts1));
+  res.render('lkpapka/lkLayout', { userPosts });
 });
 
 router.post('/addPost', async (req, res) => {

@@ -16,4 +16,13 @@
 </form>
 
 {{!-- if --}}
-
+<div>
+{{#each userPosts}}
+ <div>
+    <img src="{{this.Card.img}}">
+    <div>{{this.Card.name}}</div>
+    <div>{{this.price}}</div>
+    <div>{{this.State.name}}</div>
+  </div>
+{{/each}}
+</div>
