@@ -12,7 +12,20 @@
   align-items: center;
 }
 body {
-  background-color: rgb(143, 116, 186);
+  background-color: rgb(143, 116, 186); 
+  margin: 0;
+}
+#cardsBody {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cards {
+  margin: 30px;
+}
+.cardsImage {
+  height: 300px;
+  width: 200px;
 }
 .form-control {
   width: 300px;
@@ -22,4 +35,7 @@ body {
 }
 .btn {
   margin-top: 20px;
+  border: 2px solid #7BA7AB;
+  border-radius: 5px;
+  background: #F9F0DA;
 }

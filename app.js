@@ -32,6 +32,7 @@ app.use('/signUp', signUpRouter);
 app.use('/signIn', signInRouter);
 app.use('/signOut', signOutRouter);
 
+
 app.use('/cart', cartRouter);
 // app.use('/cart/succes')
 app.use('/lk', lkRouter);
@@ -64,9 +65,9 @@ app.use((err, req, res, next) => {
   res.locals.error = error;
 
   // Задаём в будущем ответе статус ошибки. Берём его из объекта ошибки, если он там есть. В противно случае записываем универсальный стату ошибки на сервере - 500.
-  res.status(err.status || 500);
+  res.sendStatus(err.status || 500);
   // Формируем HTML-текст из шаблона "error.hbs" и отправляем его на клиент в качестве ответа.
-  res.render('error');
+  // res.render('error');
 });
 
 app.listen(PORT, () => {

@@ -1,27 +1,37 @@
+
 .entrance {
   display: flex;
-  justify-content:flex-start;
-  background: radial-gradient(#c5c5e6, #7227c9);
-
+  align-items: flex-start;
+  width: 100%;
+  margin: 0;
+  justify-content:space-between;
   color:#7BA7AB;
+  background: radial-gradient(#c5c5e6, #7227c9);
+  
 }
+.entrance :last-child {
+  align-self:flex-end;
+}
+
 .link {
   color:#f9eed3;
   text-decoration: none;
+  margin-right: 10px;
 }
 
 .allmagic {
   width: 20%;
 }
 .magic {
-  width: 50%;
-  height: 60%;
+  width: 120px;
+  height: 70px;
   margin-left: 5px;
 }
 .market {
-  margin-left: 10%;
+  margin-left: 25px;
   margin-top: 0;
-  width: 50px;
+  width: 70px;
+  font-size: 20px;
 }
 form {
   width: 150px;
@@ -32,18 +42,22 @@ form {
   padding-left: 5px;
   border: 2px solid #7BA7AB;
   border-radius: 5px;
-  outline: none;
   background: #F9F0DA;
+  outline: none;
   color: #9E9C9C;
   margin-top: 6%;
+
 }
 .inputserch {
-  margin-left: 300px;
+  margin-left: 0;
+ 
 }
 .button {
-  
-  align-self: center;
- 
+
  display: flex;
  flex-direction: column;
+ margin-top: 5px;
+ border: #F9F0DA solid 2px;
+ background: #7BA7AB;
+ border-radius: 5px;
 }
