@@ -1,0 +1,25 @@
+.registration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+
+  text-align: center;
+  margin: 10% 0;
+  min-height: 200px;
+  
+  align-items: center;
+}
+body {
+  background-color: rgb(143, 116, 186);
+}
+.form-control {
+  width: 300px;
+  background: #F9F0DA;
+  border: 2px solid #7BA7AB;
+  height: 20px;
+}
+.btn {
+  margin-top: 20px;
+}
