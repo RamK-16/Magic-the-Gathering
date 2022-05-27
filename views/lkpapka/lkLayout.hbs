@@ -1,17 +1,36 @@
+<div class="profileInfoContainer">
+  <div>Ваш профиль:</div>
+  <div>Имя: {{user.name}}</div>
+  <div>email: {{user.email}}</div>
+</div>
+
 <nav>
-  <button>Мои карточки</button> | 
-  <button>Добавить карточки</button>
+  <button id="myPostsNavButton">Мои карточки</button> | 
+  <button id="addPostNavButton">Выставить новую карточку на продажу</button>
 </nav>
 
-{{!-- if --}}
-<form class="add-post-form">
+{{!-- <form class="add-post-form">
   <div class="card-image-container"></div>
-  <label for="cardName">Card name:</label><br>
-  <input type="text" id="fname" name="cardName"><br>
-  <label for="price">Price:</label><br>
-  <input type="text" id="lname" name="lname">
+  <label for="cardName">Название карточки:</label><br>
+  <input type="text" name="cardName"><br>
+  <label for="price">Цена:</label><br>
+  <input type="text" name="price">
+  <label for="price">Состояние:</label><br>
+  <input type="text" name="state_id">
   <button type="submit">Выставить на продажу</button>
-</form>
+</form> --}}
 
-{{!-- if --}}
+<div class="lkMainContainer">
+  <div class="addPostContainer"></div>
+  <div class="lkMyPostsContainer">
+    {{#each userPosts}}
+      <div class="lkPostInMyPostsContainer">
+        <img class="card-image-container" src="{{this.Card.img}}">
+        <div>Название: {{this.Card.name}}</div>
+        <div>Цена: {{this.price}}$</div>
+        <div>Cостояние: {{this.State.name}}</div>
+      </div>
+    {{/each}}
+  </div>
+</div>
 

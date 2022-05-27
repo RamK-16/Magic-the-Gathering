@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-  res.redirect('/');
+  req.session.destroy();
+  res.clearCookie('sID').redirect('/');
 });
-
 module.exports = router;

@@ -7,6 +7,7 @@
   justify-content:space-between;
   color:#7BA7AB;
   background: radial-gradient(#c5c5e6, #7227c9);
+  border: rebeccapurple solid 2px;
   
 }
 .entrance :last-child {
@@ -53,14 +54,15 @@ form {
  
 }
 .button {
-
  display: flex;
  flex-direction: column;
- margin-top: 5px;
+ margin-top: 15px;
+ margin-left: 45px;
  border: #F9F0DA solid 2px;
  background: #7BA7AB;
  border-radius: 5px;
 }
+
 
 .styleSearchBar{
   position: absolute;
@@ -76,3 +78,4 @@ div[onclick]:hover{
   background-color: blue;
   cursor: pointer;
 }
+
