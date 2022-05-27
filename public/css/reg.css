@@ -4,15 +4,13 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
-
   text-align: center;
   margin: 10% 0;
   min-height: 200px;
-  
   align-items: center;
 }
 body {
-  background-color: rgb(143, 116, 186); 
+  background-color: rgb(143, 116, 186);
   margin: 0;
 }
 #cardsBody {
@@ -49,3 +47,7 @@ body {
   color:rgb(34, 6, 61);
   border-radius: 5px;
   }
+.reg {
+  text-align: center;
+  color:rgb(26, 86, 114)
+}
