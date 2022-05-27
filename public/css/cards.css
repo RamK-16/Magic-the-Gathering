@@ -1,0 +1,32 @@
+.nameCards {
+  text-align: center;
+  vertical-align:middle;
+  height: 30px;
+  color:rgb(34, 6, 61);
+  padding-top: 15px;
+}
+.cards{
+margin-right: 20px;
+margin-left: 20px;
+width: 200px;
+border: #F9F0DA solid 1px;
+background: rgb(124, 168, 171, 0.6);
+border-radius: 5px;
+}
+.round {
+  position:fixed; bottom: 10px; right: 10px;
+  font-size: 30px;
+  color:rgba(54, 11, 106);
+  height: 40px; width: 40px;
+  border:rgb(54, 11, 106) solid 2px;
+  border-radius: 50%;
+}
+.buttonUp {
+	text-decoration: none;
+  margin-left: 4px;
+  margin-bottom: 5px;
+
+
+}
+
+

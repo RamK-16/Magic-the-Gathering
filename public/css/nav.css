@@ -7,6 +7,7 @@
   justify-content:space-between;
   color:#7BA7AB;
   background: radial-gradient(#c5c5e6, #7227c9);
+  border: rebeccapurple solid 2px;
   
 }
 .entrance :last-child {
@@ -15,7 +16,6 @@
 
 .link {
   color:#f9eed3;
-  
   text-decoration: none;
   margin-right: 10px;
 }
@@ -54,11 +54,12 @@ form {
  
 }
 .button {
-
  display: flex;
  flex-direction: column;
- margin-top: 5px;
+ margin-top: 15px;
+ margin-left: 45px;
  border: #F9F0DA solid 2px;
  background: #7BA7AB;
  border-radius: 5px;
 }
+
