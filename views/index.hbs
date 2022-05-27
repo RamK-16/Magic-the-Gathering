@@ -1,7 +1,7 @@
 <div id="cardsBody">
   {{#each card}}
   <form data-id="{{this.id}}" class="cards"><a href="/card/{{this.id}}">
-    <div data-id="{{this.id}}">{{this.name}} {{this.id}}</div>
+    <div data-id="{{this.id}}" class="word">{{this.name}} {{this.id}}</div>
     <img class="cardsImage" src="{{this.img}}"></a>
     <div class="countPost">Количество: {{this.Posts.length}}</div>
   </form>
