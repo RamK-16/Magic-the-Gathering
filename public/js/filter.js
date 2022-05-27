@@ -1,8 +1,9 @@
 const cityInput = document.querySelector('#citySearch');
 const cardInput = document.querySelector('#cardSearch');
+
 async function cityFilter() {
   const searchValue = cityInput.value.toLowerCase();
-  
+
   const response = await fetch('/filterCity');
   if (response.ok) {
     const result = await response.json();
@@ -14,7 +15,7 @@ async function cityFilter() {
       string += `<div onclick="selectCity(this)">${resultArr[i]}</div>\n`;
     }
     const searchCityList = document.querySelector('#searchCityList');
-    if (searchValue.length === 0) { 
+    if (searchValue.length === 0) {
       searchCityList.innerHTML = '';
       return;
     }
@@ -33,7 +34,28 @@ async function cardFilter() {
       string += `<div onclick="selectCard(this)">${resultArr[i]}</div>\n`;
     }
     const searchCardList = document.querySelector('#searchCardList');
-    if (searchValue.length === 0) { 
+    if (searchValue.length === 0) {
+      searchCardList.innerHTML = '';
+      return;
+    }
+    searchCardList.innerHTML = string;
+  }
+}
+
+async function getListCards() {
+  const cardInputLk = document.querySelector('#cardSearchLk');
+  const searchValue = cardInputLk.value.toLowerCase();
+  const response = await fetch('/filterCard');
+  if (response.ok) {
+    const result = await response.json();
+    let string = '';
+    const resultArr = result.filter((el) => el.name.toLowerCase().indexOf(searchValue) !== (-1))
+      .map((el) => el.name);
+    for (let i = 0; i < resultArr.length; i += 1) {
+      string += `<div onclick="selectCardLk(this)">${resultArr[i]}</div>\n`;
+    }
+    const searchCardList = document.querySelector('#searchCardList2');
+    if (searchValue.length === 0) {
       searchCardList.innerHTML = '';
       return;
     }
@@ -53,8 +75,21 @@ function selectCard(elem) {
   searchCardList.innerHTML = '';
 }
 
-function disableLists(){
+function disableLists() {
   searchCityList.innerHTML = '';
   searchCardList.innerHTML = '';
 }
 
+function selectCardLk(elem) {
+  const cardInputLk = document.querySelector('#cardSearchLk');
+  cardInputLk.value = elem.textContent;
+  const imageContainer = document.querySelector('.card-image-container');
+  imageContainer.innerHTML = `<img id="tradeCardPic" src='/img/${elem.textContent}.png'>`;
+  const searchCardList = document.querySelector('#searchCardList2');
+  searchCardList.innerHTML = '';
+}
+
+function disableListLk() {
+  const cardList = document.querySelector('#searchCardList2');
+  cardList.innerHTML = '';
+}

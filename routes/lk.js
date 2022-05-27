@@ -3,33 +3,35 @@ const router = require('express').Router();
 const { Post, Card, State, User } = require('../db/models');
 
 router.get('/', async (req, res) => {
-  const userPosts1 = await Post.findAll({
-    where: {
-      user_id: 2,
-    },
-    attributes: ['price'],
-    include: [{
-      model: Card,
-      attributes: ['img', 'name'],
-    }, {
-      model: State,
-      attributes: ['name'],
-    }],
-  });
-  const user1 = await User.findByPk(2);
-  const userPosts = JSON.parse(JSON.stringify(userPosts1));
-  const user = JSON.parse(JSON.stringify(user1));
-  console.log(user);
-  res.render('lkpapka/lkLayout', { userPosts, user });
+  if (req.session.userid) {
+    const userPosts1 = await Post.findAll({
+      where: {
+        user_id: req.session.userid,
+      },
+      attributes: ['price', 'id'],
+      include: [{
+        model: Card,
+        attributes: ['img', 'name'],
+      }, {
+        model: State,
+        attributes: ['name'],
+      }],
+    });
+    const user1 = await User.findByPk(req.session.userid);
+    const userPosts = JSON.parse(JSON.stringify(userPosts1));
+    const user = JSON.parse(JSON.stringify(user1));
+    // console.log(user);
+    res.render('lkpapka/lkLayout', { userPosts, user });
+  }
 });
 
 router.post('/', async (req, res) => {
   try {
     const userPosts1 = await Post.findAll({
       where: {
-        user_id: 2,
+        user_id: req.session.userid,
       },
-      attributes: ['price'],
+      attributes: ['price', 'id'],
       include: [{
         model: Card,
         attributes: ['img', 'name'],
@@ -39,6 +41,7 @@ router.post('/', async (req, res) => {
       }],
     });
     const userPosts = JSON.parse(JSON.stringify(userPosts1));
+    // console.log(userPosts);
     res.json({ userPosts });
   } catch (err) {
     console.log('error in router', err);
@@ -47,14 +50,27 @@ router.post('/', async (req, res) => {
 
 router.post('/addPost', async (req, res) => {
   const card = await Card.findOne({ where: { name: req.body.cardName } });
+  console.log(card);
   const cardId = card.id;
   console.log(cardId);
   const newPost = await Post.create({
     card_id: cardId,
-    user_id: 2,
+    user_id: req.session.userid,
     price: req.body.price,
     state_id: req.body.state_id,
   });
   return res.send(200);
 });
 module.exports = router;
+
+router.delete('/:id', async (req, res) => {
+  try {
+    console.log(req.params);
+    await Post.destroy({ where: { id: req.params.id } });
+    // return res.status(200);
+    res.sendStatus(200);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(401);
+  }
+});

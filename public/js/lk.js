@@ -4,7 +4,6 @@ const addPostNavButton = document.querySelector('#addPostNavButton');
 const addPostContainer = document.querySelector('.addPostContainer');
 const lkMyPostsContainer = document.querySelector('.lkMyPostsContainer');
 
-
 myPostsNavButton.addEventListener('click', async (event) => {
   try {
     const response = await fetch('/lk', {
@@ -18,7 +17,7 @@ myPostsNavButton.addEventListener('click', async (event) => {
       console.log('looking at my posts');
       const data = await response.json();
       console.log(data);
-      addPostContainer.innerHTML = '';
+      addPostForm.innerHTML = '';
       lkMyPostsContainer.innerHTML = '';
       for (let i = 0; i < data.userPosts.length; i += 1) {
         lkMyPostsContainer.insertAdjacentHTML('afterbegin', `
@@ -51,13 +50,20 @@ addPostNavButton.addEventListener('click', async (event) => {
       lkMyPostsContainer.innerHTML = '';
       addPostForm.innerHTML = `
       
-        <div class="card-image-container"></div>
+        <div class="card-image-container">
+          
+        </div>
         <label for="cardName">Название карточки:</label><br>
-        <input type="text" name="cardName"><br>
+        <input type="text" onkeyup="getListCards()" id="cardSearchLk" name="cardName">
+        <div id="searchCardList2" class="styleSearchBar"></div><br>
         <label for="price">Цена:</label><br>
         <input type="text" name="price">
         <label for="price">Состояние:</label><br>
-        <input type="text" name="state_id">
+        <select name="state_id">
+          <option value="1">new</option>
+          <option value="3">norm</option>
+          <option value="2">old</option>
+        </select>
         <button type="submit">Выставить на продажу</button>
 
       `;
@@ -81,6 +87,22 @@ if (addPostForm) {
       body: JSON.stringify(formData),
     });
     if (response1.ok) {
+      window.location.reload();
+    }
+  });
+}
+
+
+if (lkMyPostsContainer) {
+  lkMyPostsContainer.addEventListener('click', async (event) => {
+    event.preventDefault();
+    const id = event.target.dataset.postid;
+    // console.log('=========================>', id);
+    const response = await fetch(`/lk/${id}`, {
+      method: 'DELETE',
+    });
+    if (response.ok) {
+      document.querySelector(`#aa${id}`).remove();
       window.location.reload();
     }
   });
