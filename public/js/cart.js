@@ -14,7 +14,7 @@ if (cartMyPostsContainer) {
       },
     });
     if (response.ok) {
-      window.location.href = '/';
+      window.location.reload();
     }
   });
 }

@@ -29,40 +29,40 @@ module.exports = {
       });
     }
     const states = [{ name: 'new', createdAt: new Date(), updatedAt: new Date() }, { name: 'old', createdAt: new Date(), updatedAt: new Date() }, { name: 'norm', createdAt: new Date(), updatedAt: new Date() }];
-    const users = [{
-      name: 'Ilya', email: '11@', pass: '123', role_id: 2, city_id: 1, createdAt: new Date(), updatedAt: new Date(),
-    }, {
-      name: 'Alex', email: '22@', pass: '123', role_id: 2, city_id: 2, createdAt: new Date(), updatedAt: new Date(),
-    }, {
-      name: 'Natalya', email: '33@', pass: '123', role_id: 2, city_id: 2, createdAt: new Date(), updatedAt: new Date(),
-    }];
-    const posts = [{
+    // const users = [{
+    //   name: 'Ilya', email: '11@', pass: '123', role_id: 2, city_id: 1, createdAt: new Date(), updatedAt: new Date(),
+    // }, {
+    //   name: 'Alex', email: '22@', pass: '123', role_id: 2, city_id: 2, createdAt: new Date(), updatedAt: new Date(),
+    // }, {
+    //   name: 'Natalya', email: '33@', pass: '123', role_id: 2, city_id: 2, createdAt: new Date(), updatedAt: new Date(),
+    // }];
+    // const posts = [{
 
-      card_id: 1, user_id: 3, state_id: 1, price: 10.9, createdAt: new Date(), updatedAt: new Date(),
-    }, {
-      card_id: 1, user_id: 3, state_id: 2, price: 11.9, createdAt: new Date(), updatedAt: new Date(),
-    }, {
-      card_id: 2, user_id: 2, state_id: 3, price: 4, createdAt: new Date(), updatedAt: new Date(),
-    }, {
-      card_id: 2, user_id: 1, state_id: 2, price: 6.12, createdAt: new Date(), updatedAt: new Date(),
-    }];
-    const carts = [{
-      user_id: 1, post_id: 3, createdAt: new Date(), updatedAt: new Date(),
-    }, {
-      user_id: 3, post_id: 3, createdAt: new Date(), updatedAt: new Date(),
-    }, {
-      user_id: 2, post_id: 1, createdAt: new Date(), updatedAt: new Date(),
-    }, {
-      user_id: 2, post_id: 2, createdAt: new Date(), updatedAt: new Date(),
-    }];
+    //   card_id: 1, user_id: 3, state_id: 1, price: 10.9, createdAt: new Date(), updatedAt: new Date(),
+    // }, {
+    //   card_id: 1, user_id: 3, state_id: 2, price: 11.9, createdAt: new Date(), updatedAt: new Date(),
+    // }, {
+    //   card_id: 2, user_id: 2, state_id: 3, price: 4, createdAt: new Date(), updatedAt: new Date(),
+    // }, {
+    //   card_id: 2, user_id: 1, state_id: 2, price: 6.12, createdAt: new Date(), updatedAt: new Date(),
+    // }];
+    // const carts = [{
+    //   user_id: 1, post_id: 3, createdAt: new Date(), updatedAt: new Date(),
+    // }, {
+    //   user_id: 3, post_id: 3, createdAt: new Date(), updatedAt: new Date(),
+    // }, {
+    //   user_id: 2, post_id: 1, createdAt: new Date(), updatedAt: new Date(),
+    // }, {
+    //   user_id: 2, post_id: 2, createdAt: new Date(), updatedAt: new Date(),
+    // }];
 
     await queryInterface.bulkInsert('Cities', cities, {});
     await queryInterface.bulkInsert('Roles', roles, {});
     await queryInterface.bulkInsert('Cards', cards, {});
     await queryInterface.bulkInsert('States', states, {});
-    await queryInterface.bulkInsert('Users', users, {});
-    await queryInterface.bulkInsert('Posts', posts, {});
-    await queryInterface.bulkInsert('Carts', carts, {});
+    // await queryInterface.bulkInsert('Users', users, {});
+    // await queryInterface.bulkInsert('Posts', posts, {});
+    // await queryInterface.bulkInsert('Carts', carts, {});
   },
 
   async down(queryInterface, Sequelize) {

@@ -47,7 +47,7 @@ router.delete('/delete/:id', async (req, res) => {
   const postInCart = await Cart.findOne({ where: { post_id: req.params.id, user_id: userId } });
   // console.log(postInCart);
   await postInCart.destroy();
-  // res.sendStatus(200);
+  res.send(200);
 });
 
 module.exports = router;
