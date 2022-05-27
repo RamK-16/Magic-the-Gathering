@@ -4,22 +4,6 @@ const addPostNavButton = document.querySelector('#addPostNavButton');
 const addPostContainer = document.querySelector('.addPostContainer');
 const lkMyPostsContainer = document.querySelector('.lkMyPostsContainer');
 
-if (addPostForm) {
-  addPostForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const formData = Object.fromEntries(new FormData(addPostForm));
-    const response = await fetch('/lk/addPost', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-    if (response.ok) {
-      window.location.href = '/';
-    }
-  });
-}
 
 myPostsNavButton.addEventListener('click', async (event) => {
   try {
@@ -65,8 +49,8 @@ addPostNavButton.addEventListener('click', async (event) => {
       const data = await response.json();
       console.log(data);
       lkMyPostsContainer.innerHTML = '';
-      addPostContainer.innerHTML = `
-      <form class="add-post-form">
+      addPostForm.innerHTML = `
+      
         <div class="card-image-container"></div>
         <label for="cardName">Название карточки:</label><br>
         <input type="text" name="cardName"><br>
@@ -75,10 +59,29 @@ addPostNavButton.addEventListener('click', async (event) => {
         <label for="price">Состояние:</label><br>
         <input type="text" name="state_id">
         <button type="submit">Выставить на продажу</button>
-      </form>
+
       `;
+
     }
   } catch (err) {
     console.log('trying to POST error', err);
   }
 });
+
+if (addPostForm) {
+  addPostForm.addEventListener('submit', async (event1) => {
+    event1.preventDefault();
+    console.log('aasdfffffffffffffffffffffffffffffffffffaadsf');
+    const formData = Object.fromEntries(new FormData(addPostForm));
+    const response1 = await fetch('/lk/addPost', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+    if (response1.ok) {
+      window.location.reload();
+    }
+  });
+}
