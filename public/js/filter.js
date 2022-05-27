@@ -2,17 +2,22 @@ const cityInput = document.querySelector('#citySearch');
 const cardInput = document.querySelector('#cardSearch');
 async function cityFilter() {
   const searchValue = cityInput.value.toLowerCase();
+  
   const response = await fetch('/filterCity');
   if (response.ok) {
     const result = await response.json();
     let string = '';
     const resultArr = result.filter((el) => el.name.toLowerCase().indexOf(searchValue) === (0))
       .map((el) => el.name);
-    console.log(resultArr);
+
     for (let i = 0; i < resultArr.length; i += 1) {
       string += `<div onclick="selectCity(this)">${resultArr[i]}</div>\n`;
     }
     const searchCityList = document.querySelector('#searchCityList');
+    if (searchValue.length === 0) { 
+      searchCityList.innerHTML = '';
+      return;
+    }
     searchCityList.innerHTML = string;
   }
 }
@@ -28,6 +33,10 @@ async function cardFilter() {
       string += `<div onclick="selectCard(this)">${resultArr[i]}</div>\n`;
     }
     const searchCardList = document.querySelector('#searchCardList');
+    if (searchValue.length === 0) { 
+      searchCardList.innerHTML = '';
+      return;
+    }
     searchCardList.innerHTML = string;
   }
 }
@@ -43,3 +52,9 @@ function selectCard(elem) {
   const searchCardList = document.querySelector('#searchCardList');
   searchCardList.innerHTML = '';
 }
+
+function disableLists(){
+  searchCityList.innerHTML = '';
+  searchCardList.innerHTML = '';
+}
+
