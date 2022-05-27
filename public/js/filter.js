@@ -52,3 +52,9 @@ function selectCard(elem) {
   const searchCardList = document.querySelector('#searchCardList');
   searchCardList.innerHTML = '';
 }
+
+function disableLists(){
+  searchCityList.innerHTML = '';
+  searchCardList.innerHTML = '';
+}
+
