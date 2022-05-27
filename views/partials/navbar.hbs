@@ -5,9 +5,11 @@
     <a href="/"><img class="magic" src="https://millenniumgames.com/wp-content/uploads/2021/09/MTG_Primary_LL_2c_Black_LG_V12.png"></a>
     <p class="market">MarketPlace</p>
 </div>
-  <form class="inputserch">
-  <input class="serch" type="text" placeholder="Город">
-  <input class="serch" type="text" placeholder="Название карточки"> 
+<form class="inputserch">
+  <input class="serch" type="search" id="citySearch" onkeyup="cityFilter()" placeholder="Город">
+  <div id="searchCityList" class="styleSearchBar"></div>
+  <input class="serch" type="search" id="cardSearch" onkeyup="cardFilter()" placeholder="Название карточки"> 
+  <div id="searchCardList" class="styleSearchBar"></div>
   <button class="button" type="submit">Найти🔎</button>
 </form>
   <ul>

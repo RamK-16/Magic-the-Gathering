@@ -25,6 +25,7 @@ async function findPostsInUserCart() {
   return JSON.parse(JSON.stringify(PostsInUserCart1));
 }
 
+
 router.get('/', async (req, res) => {
   const PostInUserCart1 = await findPostsInUserCart();
   const PostInUserCart = PostInUserCart1.PostInCart;
