@@ -1,19 +1,20 @@
-const cartMainForm = document.querySelector('.cartMainForm');
-
-if (cartMainForm) {
-  cartMainForm.addEventListener('submit', async (event) => {
+const cartMyPostsContainer = document.querySelector('.cartMyPostsContainer');
+console.log(cartMyPostsContainer);
+if (cartMyPostsContainer) {
+  cartMyPostsContainer.addEventListener('click', async (event) => {
     event.preventDefault();
-    console.log(event.target);
-    // const formData = Object.fromEntries(new FormData(addPostForm));
-    // const response = await fetch('/lk/addPost', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(formData),
-    // });
-    // if (response.ok) {
-    //   window.location.href = '/';
-    // }
+    const divWithPostToDelete = event.target.closest('[data-id]');
+    const idOfPostToDelete = divWithPostToDelete.dataset.id;
+    // console.log(divWithPostToDelete);
+    // console.log(idOfPostToDelete);
+    const response = await fetch(`/cart/delete/${idOfPostToDelete}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    if (response.ok) {
+      window.location.href = '/';
+    }
   });
 }

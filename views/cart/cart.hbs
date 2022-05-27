@@ -7,19 +7,19 @@
     <button class="buy_button">Купить</button>
   </div>
 
-  <form class="cartMainForm">
+  <div class="cartMyPostsContainer">
     {{#each PostInUserCart}}
-    <div>
-    <img src="{{this.Card.img}}">
-    <div>{{this.Card.name}}</div>
-    <div>{{this.price}}</div>
-    <div>{{this.State.name}}</div>
-    <div>{{this.User.City.name}}</div>
-      <button class="deleteFromCartButton" id="{{this.Card.name}}{{this.State.name}}" type="submit">Удалить</button>
+    <div data-id="{{this.id}}">
+      <img src="{{this.Card.img}}">
+      <div>{{this.Card.name}}</div>
+      <div>{{this.price}}</div>
+      <div>{{this.State.name}}</div>
+      <div>{{this.User.City.name}}</div>
+      <button class="deleteFromCartButton" value="">Удалить</button>
     </div>
     {{/each}}
     
-  </form>
+  </div>
 </div>
 
 
