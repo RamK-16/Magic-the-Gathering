@@ -28,9 +28,14 @@ async function findPostsInUserCart() {
 router.get('/', async (req, res) => {
   const PostInUserCart1 = await findPostsInUserCart();
   const PostInUserCart = PostInUserCart1.PostInCart;
-  console.log(PostInUserCart1);
-  //console.log(PostInUserCart);
-  res.render('cart/cart', { PostInUserCart });
+  // console.log(PostInUserCart);
+  let sumPrice = 0;
+  PostInUserCart.forEach((post) => {
+    console.log(post.price);
+    sumPrice += post.price;
+  });
+  // console.log(PostInUserCart);
+  res.render('cart/cart', { PostInUserCart, sumPrice });
 });
 
 router.get('/success', (req, res) => {
