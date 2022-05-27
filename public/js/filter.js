@@ -6,7 +6,7 @@ async function cityFilter() {
   if (response.ok) {
     const result = await response.json();
     let string = '';
-    const resultArr = result.filter((el) => el.name.toLowerCase().indexOf(searchValue) !== (-1))
+    const resultArr = result.filter((el) => el.name.toLowerCase().indexOf(searchValue) === (0))
       .map((el) => el.name);
     console.log(resultArr);
     for (let i = 0; i < resultArr.length; i += 1) {

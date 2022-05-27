@@ -72,12 +72,7 @@ form {
   align-items: center;
 }
 
-/* #searchCardList{
-  position: absolute;
-  color: black;
-  background-color: white;
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
+div[onclick]:hover{
+  background-color: blue;
+  cursor: pointer;
+}
