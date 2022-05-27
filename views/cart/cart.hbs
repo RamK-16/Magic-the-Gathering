@@ -5,10 +5,9 @@
   <div class="cartBuyContainer">
     <div>Общая цена: {{ sumPrice }}</div>
     <button class="buy_button">Купить</button>
-
   </div>
 
-  <form>
+  <form class="cartMainForm">
     {{#each PostInUserCart}}
     <div>
     <img src="{{this.Card.img}}">
@@ -16,7 +15,7 @@
     <div>{{this.price}}</div>
     <div>{{this.State.name}}</div>
     <div>{{this.User.City.name}}</div>
-      <button class="delete_button">Удалить</button>
+      <button class="deleteFromCartButton" id="{{this.Card.name}}{{this.State.name}}" type="submit">Удалить</button>
     </div>
     {{/each}}
     

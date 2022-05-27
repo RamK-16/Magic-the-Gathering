@@ -32,7 +32,7 @@ router.get('/', async (req, res) => {
   // console.log(PostInUserCart);
   let sumPrice = 0;
   PostInUserCart.forEach((post) => {
-    console.log(post.price);
+    // console.log(post.price);
     sumPrice += post.price;
   });
   // console.log(PostInUserCart);
