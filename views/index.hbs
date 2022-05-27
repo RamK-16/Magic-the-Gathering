@@ -1,9 +1,10 @@
 <div id="cardsBody">
   {{#each card}}
-  <form class="cards"><a href="/card/{{this.id}}">
-    <div data-id="{{this.id}}">{{this.name}} {{this.id}}</div>
+  <form class="cards"><a class="link" href="/card/{{this.id}}">
+    <div class="nameCards" data-id="{{this.id}}">{{this.name}} {{this.id}}</div>
     <img class="cardsImage" src="{{this.img}}"></a>
   </form>
   {{/each}}
+     <div class="round"><a href="#" class="buttonUp">⬆</a></div>
 </div>
 
