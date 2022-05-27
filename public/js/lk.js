@@ -4,7 +4,6 @@ const addPostNavButton = document.querySelector('#addPostNavButton');
 const addPostContainer = document.querySelector('.addPostContainer');
 const lkMyPostsContainer = document.querySelector('.lkMyPostsContainer');
 
-
 myPostsNavButton.addEventListener('click', async (event) => {
   try {
     const response = await fetch('/lk', {
@@ -81,6 +80,22 @@ if (addPostForm) {
       body: JSON.stringify(formData),
     });
     if (response1.ok) {
+      window.location.reload();
+    }
+  });
+}
+
+
+if (lkMyPostsContainer) {
+  lkMyPostsContainer.addEventListener('click', async (event) => {
+    event.preventDefault();
+    const id = event.target.dataset.postid;
+    // console.log('=========================>', id);
+    const response = await fetch(`/lk/${id}`, {
+      method: 'DELETE',
+    });
+    if (response.ok) {
+      document.querySelector(`#aa${id}`).remove();
       window.location.reload();
     }
   });

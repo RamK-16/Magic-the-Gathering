@@ -1,13 +1,17 @@
 <div class="profileInfoContainer">
+  <div>
+    <h1>Ваш личный кабинет открыт, повелитель-{{user.name}}</h1>
+  </div>
   <div>Ваш профиль:</div>
   <div>Имя: {{user.name}}</div>
   <div>email: {{user.email}}</div>
 </div>
 
 <nav>
-  <button id="myPostsNavButton">Мои карточки</button> | 
+  <button id="myPostsNavButton">Мои карточки</button> |
   <button id="addPostNavButton">Выставить новую карточку на продажу</button>
 </nav>
+
 
 {{!-- <form class="add-post-form">
   <div class="card-image-container"></div>
@@ -23,18 +27,18 @@
 <div class="lkMainContainer">
   <div class="addPostContainer">
     <form class="add-post-form">
-      
+
     </form>
   </div>
   <div class="lkMyPostsContainer">
     {{#each userPosts}}
-      <div class="lkPostInMyPostsContainer">
-        <img class="card-image-container" src="{{this.Card.img}}">
-        <div>Название: {{this.Card.name}}</div>
-        <div>Цена: {{this.price}}$</div>
-        <div>Cостояние: {{this.State.name}}</div>
-      </div>
+    <div class="lkPostInMyPostsContainer" id="aa{{this.id}}">
+      <img class="card-image-container" src="{{this.Card.img}}">
+      <div>Название: {{this.Card.name}}</div>
+      <div>Цена: {{this.price}}$</div>
+      <div>Cостояние: {{this.State.name}}</div>
+      <button data-postid="{{this.id}}" type="click">Удалить пост{{this.id}}</button>
+    </div>
     {{/each}}
   </div>
 </div>
-
