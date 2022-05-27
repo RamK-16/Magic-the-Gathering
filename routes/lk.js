@@ -50,6 +50,7 @@ router.post('/', async (req, res) => {
 
 router.post('/addPost', async (req, res) => {
   const card = await Card.findOne({ where: { name: req.body.cardName } });
+  console.log(card);
   const cardId = card.id;
   console.log(cardId);
   const newPost = await Post.create({
