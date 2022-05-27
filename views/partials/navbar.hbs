@@ -1,23 +1,26 @@
 <nav>
   <div class="entrance">
     <div class="allmagic">
-    <a href="/"><img class="magic" src="https://millenniumgames.com/wp-content/uploads/2021/09/MTG_Primary_LL_2c_Black_LG_V12.png"></a>
-    <p class="market">MarketPlace</p>
-</div>
-  <form class="inputserch">
-  <input class="serch" type="text" placeholder="Город">
-  <input class="serch" type="text" placeholder="Название карточки"> 
-  <button class="button" type="submit">Найти🔎</button>
-</form>
-  <ul>
-    <li><a class="link" href="/signUp">Регистрация</a></li>
-    <li><a class="link" href="/signIn">Войти</a></li>
-    <li><a class="link" href="/">Домой</a></li>
-    <li><a class="link" href="/cart">Корзина</a></li>
-    <li><a class="link" href="/">Выйти</a></li>
-  </ul>
+      <a href="/"><img class="magic"
+          src="https://millenniumgames.com/wp-content/uploads/2021/09/MTG_Primary_LL_2c_Black_LG_V12.png"></a>
+      <p class="market">MarketPlace</p>
+    </div>
+    <form class="inputserch">
+      <input class="serch" type="text" placeholder="Город">
+      <input class="serch" type="text" placeholder="Название карточки">
+      <button class="button" type="submit">Найти🔎</button>
+    </form>
+    <ul>
+      {{#if user}}
+      <div>{{user.email}}</div>
+      {{/if}}
+      <li><a class="link" href="/signUp">Регистрация</a></li>
+      <li><a class="link" href="/signIn">Войти</a></li>
+      <li><a class="link" href="/">Домой</a></li>
+      <li><a class="link" href="/cart">Корзина</a></li>
+      <li><a class="link" href="/signOut">Выйти</a></li>
+    </ul>
 
 
-</div>
+  </div>
 </nav>
- 

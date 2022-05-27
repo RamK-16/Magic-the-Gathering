@@ -6,7 +6,7 @@ const logger = require('morgan');
 const path = require('path');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
-// const { checkSession } = require('./MiddleWars/MiddleWar');
+const { checkSession } = require('./MiddleWars/MiddleWar');
 const indexRouter = require('./routes/index');
 const signUpRouter = require('./routes/signUp');
 const signInRouter = require('./routes/signIn');
@@ -25,6 +25,16 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(session({
+  name: 'sID',
+  store: new FileStore({}),
+  secret: 'user',
+  resave: true,
+  saveUninitialized: false,
+}));
+
+app.use(checkSession);
 
 app.use('/', indexRouter);
 // app.use('/card${')
