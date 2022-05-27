@@ -1,9 +1,16 @@
 <div>
 
-  
+
   <div>{{card.name}}</div>
   <img src="{{card.img}}">
-  {{#each postThisCard}}
-  <div>{{this.id}}</div>
-  {{/each}}
+  <div class="postsOfCard">
+    {{#each postThisCard}}
+    <div data-id="{{this.id}}">
+      <div>Состояние: {{this.State.name}}</div>
+      <div>Город продавца: {{this.User.City.name}}</div>
+      <div>Цена: {{this.price}}</div>
+      <button>Добавить в корзину</button>
+    </div>
+    {{/each}}
+  </div>
 </div>
