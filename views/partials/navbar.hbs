@@ -15,13 +15,14 @@
   <ul>
     {{#if user}}
       <div>{{user.email}}</div>
+      <li><a class="link" href="/lk">Личный кабинет</a></li>
+      <li><a class="link" href="/signOut">Выйти</a></li>
+      <li><a class="link" href="/cart">Корзина</a></li>
+    {{else}}
+      <li><a class="link" href="/signUp">Регистрация</a></li>
+      <li><a class="link" href="/signIn">Войти</a></li>
+      <li><a class="link" href="/">Домой</a></li>
     {{/if}}
-    <li><a class="link" href="/signUp">Регистрация</a></li>
-    <li><a class="link" href="/signIn">Войти</a></li>
-    <li><a class="link" href="/lk">Личный кабинет</a></li>
-    <li><a class="link" href="/">Домой</a></li>
-    <li><a class="link" href="/cart">Корзина</a></li>
-    <li><a class="link" href="/signOut">Выйти</a></li>
   </ul>
   
   </div>

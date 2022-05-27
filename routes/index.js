@@ -45,7 +45,7 @@ router.post('/selectCard', async (req, res) => {
 //   res.render('index');
 // });
 router.post('/card/:idPost/addToCart', async (req, res) => {
-  const userId = 2;
+  const userId = req.session.userid;
   await Cart.create({
     user_id: userId,
     post_id: req.params.idPost,
