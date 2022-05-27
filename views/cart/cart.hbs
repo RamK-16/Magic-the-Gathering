@@ -1,13 +1,24 @@
 <h2>Корзина</h2>
-<form>
-  <button class="buy_button">Купить</button>
-  {{#each cartPosts}}
-  <div>
-    {{this.img}} {{this.name}} {{this.}}
-    <button class="delete_button">Удалить</button>
+
+<div class="cartMainContainer">
+  <div class="cartBuyContainer">
+    <div>Общая цена: {{ sumPrice }}</div>
+    <button class="buy_button">Купить</button>
   </div>
-  {{/each}}
-  
-</form>
+
+  <form>
+    {{#each PostInUserCart}}
+    <div>
+    <img src="{{this.Card.img}}">
+    <div>{{this.Card.name}}</div>
+    <div>{{this.price}}</div>
+    <div>{{this.State.name}}</div>
+    <div>{{this.User.City.name}}</div>
+      <button class="delete_button">Удалить</button>
+    </div>
+    {{/each}}
+    
+  </form>
+</div>
 
 
