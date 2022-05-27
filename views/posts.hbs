@@ -1,6 +1,9 @@
 <div>
 
-  fdslkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+  
   <div>{{card.name}}</div>
   <img src="{{card.img}}">
+  {{#each postThisCard}}
+  <div>{{this.id}}</div>
+  {{/each}}
 </div>
