@@ -1,5 +1,6 @@
 const cityInput = document.querySelector('#citySearch');
 const cardInput = document.querySelector('#cardSearch');
+const cityInputReg = document.querySelector('#title-input3');
 
 async function cityFilter() {
   const searchValue = cityInput.value.toLowerCase();
@@ -93,7 +94,7 @@ function selectCity(elem) {
 }
 
 function selectCity2(elem) {
-  cityInput.value = elem.textContent;
+  cityInputReg.value = elem.textContent;
   const searchCityList = document.querySelector('#searchCityListReg');
   searchCityList.innerHTML = '';
 }
